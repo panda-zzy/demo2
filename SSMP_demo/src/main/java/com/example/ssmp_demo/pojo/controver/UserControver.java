@@ -15,5 +15,5 @@ public interface UserControver {
     UserControver INSTANCE = Mappers.getMapper(UserControver.class);
 //    对象转换器
     User dtoToEntity(UserDto userDto);
-    UserDto entityToDTO(User test);
+    UserDto entityToDTO(User user);
 }

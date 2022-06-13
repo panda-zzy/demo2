@@ -43,9 +43,12 @@ public class BaseController {
 
     @ApiOperation(value = "测试日期接口", notes = "日期测试")
     @GetMapping("/testDate")
-    public User baseController(){
+    public UserDto baseController(){
         User user = userDao.selectById(16);
+        System.out.println(user.getCreateTime());
+        System.out.println(user.getUpdateTime());
+        UserDto userDto = UserControver.INSTANCE.entityToDTO(user);
         System.out.println(user);
-        return user;
+        return userDto;
     }
 }

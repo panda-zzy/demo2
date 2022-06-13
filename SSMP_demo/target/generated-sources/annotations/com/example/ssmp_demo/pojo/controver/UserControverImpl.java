@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-13T23:39:46+0800",
+    date = "2022-06-14T00:02:58+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.2 (Oracle Corporation)"
 )
 public class UserControverImpl implements UserControver {
@@ -20,6 +20,11 @@ public class UserControverImpl implements UserControver {
 
         User user = new User();
 
+        if ( userDto.getId() != null ) {
+            user.setId( String.valueOf( userDto.getId() ) );
+        }
+        user.setCreateTime( userDto.getCreateTime() );
+        user.setUpdateTime( userDto.getUpdateTime() );
         user.setName( userDto.getName() );
         user.setPwd( userDto.getPwd() );
         user.setAge( userDto.getAge() );
@@ -30,18 +35,23 @@ public class UserControverImpl implements UserControver {
     }
 
     @Override
-    public UserDto entityToDTO(User test) {
-        if ( test == null ) {
+    public UserDto entityToDTO(User user) {
+        if ( user == null ) {
             return null;
         }
 
         UserDtoBuilder userDto = UserDto.builder();
 
-        userDto.name( test.getName() );
-        userDto.pwd( test.getPwd() );
-        userDto.age( test.getAge() );
-        userDto.gender( test.getGender() );
-        userDto.email( test.getEmail() );
+        if ( user.getId() != null ) {
+            userDto.id( Integer.parseInt( user.getId() ) );
+        }
+        userDto.name( user.getName() );
+        userDto.pwd( user.getPwd() );
+        userDto.age( user.getAge() );
+        userDto.gender( user.getGender() );
+        userDto.email( user.getEmail() );
+        userDto.createTime( user.getCreateTime() );
+        userDto.updateTime( user.getUpdateTime() );
 
         return userDto.build();
     }
