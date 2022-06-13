@@ -33,7 +33,7 @@ public class BaseEntity<T extends Model> extends Model {
      * 创建时间
      */
     @TableField(value = "create_time", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd")
+
     protected Date createTime;
     /**
      * 创建人

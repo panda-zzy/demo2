@@ -41,10 +41,9 @@ public class UserDto {
     private String gender;
 
     private String email;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+
     private Date createTime;
-    @JsonFormat(pattern = "yyyy")
+
     private Date updateTime;
 
 
