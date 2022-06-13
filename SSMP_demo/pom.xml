@@ -14,10 +14,13 @@
     <name>SSMP_demo</name>
     <description>Demo project for Spring Boot</description>
     <properties>
+
         <java.version>1.8</java.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <lombok.version>1.18.12</lombok.version>
     </properties>
     <dependencies>
-<!--        引入swagger-->
+<!--        引入swagger2-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -35,13 +38,39 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>2.0.7</version>
         </dependency>
-
+<!-- 验证-->
+<!--        如果 spring-boot 版本小于 2.3.x，则 spring-boot-starter-web
+会自动依赖 hibernate-validator，否则如果 spring-boot 版本大于 2.3.x，则需要手动引入依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+<!--转换器-->
+<!--                对象转换器 mapstruct-->
+<!--        mapStruct依赖 高性能对象映射-->
+<!--        mapstruct核心-->
+<!--        mapstruct1.4.2.Final和lombok1.18.12配合使用，否则编译生成不了set方法-->
+<!--        会产生一个冲突，用这个解决-Djps.track.ap.dependencies=false-->
+                <dependency>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct</artifactId>
+                    <version>${org.mapstruct.version}</version>
+                </dependency>
+                <!--mapstruct编译-->
+                <dependency>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct-processor</artifactId>
+                    <version>${org.mapstruct.version}</version>
+                </dependency>
 
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
+
+<!--        连接数据库-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -53,10 +82,15 @@
             <version>3.5.0</version>
         </dependency>
 
+<!--        引入fastjson-->
+<!--         https://mvnrepository.com/artifact/com.alibaba/fastjson-->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.79</version>
         </dependency>
+
+
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
@@ -68,22 +102,58 @@
             <version>2.0</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <plugins>
+<!--            这里出现红色，直接清缓存重启可以解决-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.6.3</version>
+<!--                <version>3.8.1</version>-->
+            </plugin>
+<!--  解决mapstruct编译生成的impl文件无set方法问题
+因为MapStruct需要在编译器生成转换代码，所以需要在maven-compiler-plugin插件中配置上对mapstruct-processor的引用，亲测有效，-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8 </source>
+                    <target>1.8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <!--下面这个 项目中不使用 Lombok的话 不用加-->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

@@ -1,18 +1,19 @@
 package com.example.ssmp_demo;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
+import com.alibaba.fastjson.JSON;
 import com.example.ssmp_demo.dao.UserDao;
 import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.generator.mapper.TestMapper;
 import com.example.ssmp_demo.service.UserService;
-import com.example.ssmp_demo.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
+import org.mapstruct.ap.shaded.freemarker.template.SimpleDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 今天的问题就是应
@@ -24,14 +25,39 @@ class SsmpDemoApplicationTests {
     @Autowired
     public UserService userService;
 
+    @Autowired
+    public TestMapper testDao;
+
+    /**
+     * 测试JDBCType属性和java属性的对应关系
+     */
+    @Test
+    void testTest(){
+
+    }
+
     @Test
     void contextLoads() {
-//        userService = new UserServiceImpl();
-//
-//        QueryWrapper queryWrapper = new QueryWrapper();
-//        queryWrapper.eq("id","1");
-//        User user = userDao.selectOne(queryWrapper);
-        User user = userDao.selectById(1);
+
+        User user = userDao.selectById(16);
+        Date date = user.getCreateTime();
+
+        String format = new SimpleDateFormat("yy-MM-dd").format(date);
+
+        System.out.println("日期转字符串：" + format);
+
+        System.out.printf("全部日期和时间信息：%tc%n",date);                // 格式化输出日期或时间
+
+        System.out.printf("年-月-日格式：%tF%n",date);
+
+        System.out.printf("月/日/年格式：%tD%n",date);
+
+        System.out.printf("HH:MM:SS PM格式（12时制）：%tr%n",date);
+
+        System.out.printf("HH:MM:SS格式（24时制）：%tT%n",date);
+
+        System.out.printf("HH:MM格式（24时制）：%tR",date);
+
         System.out.println(user);
     }
 //    @Test

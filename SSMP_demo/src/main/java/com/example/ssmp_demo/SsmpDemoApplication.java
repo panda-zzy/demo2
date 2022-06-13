@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.example.ssmp_demo.dao"})
+@MapperScan(basePackages = {"com.example.ssmp_demo.dao","com.example.ssmp_demo.generator.mapper"})
 public class SsmpDemoApplication {
 
     public static void main(String[] args) {
