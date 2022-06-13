@@ -5,7 +5,7 @@ package com.example.ssmp_demo;
 import com.alibaba.fastjson.JSON;
 import com.example.ssmp_demo.dao.UserDao;
 import com.example.ssmp_demo.entity.User;
-import com.example.ssmp_demo.generator.mapper.TestMapper;
+
 import com.example.ssmp_demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.ap.shaded.freemarker.template.SimpleDate;
@@ -25,8 +25,6 @@ class SsmpDemoApplicationTests {
     @Autowired
     public UserService userService;
 
-    @Autowired
-    public TestMapper testDao;
 
     /**
      * 测试JDBCType属性和java属性的对应关系

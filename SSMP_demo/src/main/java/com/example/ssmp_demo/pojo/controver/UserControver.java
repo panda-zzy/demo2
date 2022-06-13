@@ -1,6 +1,6 @@
 package com.example.ssmp_demo.pojo.controver;
 
-import com.example.ssmp_demo.generator.domain.Test;
+import com.example.ssmp_demo.entity.User;
 import com.example.ssmp_demo.pojo.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
@@ -14,6 +14,6 @@ import org.mapstruct.factory.Mappers;
 public interface UserControver {
     UserControver INSTANCE = Mappers.getMapper(UserControver.class);
 //    对象转换器
-    Test dtoToEntity(UserDto userDto);
-    UserDto entityToDTO(Test test);
+    User dtoToEntity(UserDto userDto);
+    UserDto entityToDTO(User test);
 }

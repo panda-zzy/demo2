@@ -1,14 +1,12 @@
 package com.example.ssmp_demo.controller;
 
-import com.example.ssmp_demo.generator.domain.Test;
+
+import com.example.ssmp_demo.entity.User;
 import com.example.ssmp_demo.pojo.UserDto;
 import com.example.ssmp_demo.pojo.controver.UserControver;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -34,7 +32,7 @@ public class BaseController {
     @PostMapping("/testUserControver")
     public String baseController2(@RequestBody@Valid UserDto userDto){
         log.info("testUserControver入参为：" + userDto.toString());
-        Test test = UserControver.INSTANCE.dtoToEntity(userDto);
+        User test = UserControver.INSTANCE.dtoToEntity(userDto);
         log.info("testUserControver转换器输出为：" + test.toString());
         return test.toString();
     }
