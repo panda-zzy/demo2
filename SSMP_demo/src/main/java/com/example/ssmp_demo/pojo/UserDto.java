@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * @author Panda
@@ -23,7 +24,7 @@ public class UserDto {
 
     @ApiModelProperty(dataType = "Integer",value = "用户ID")
     @NotNull(message = "ID不能为NULL")
-    private Integer uid;
+    private Integer id;
 
     /**
      *
@@ -31,25 +32,17 @@ public class UserDto {
     @ApiModelProperty(dataType = "String")
     private String name;
 
-    /**
-     *
-     */
     private String pwd;
 
-    /**
-     *
-     */
     private Integer age;
 
-    /**
-     *
-     */
     private String gender;
 
-    /**
-     *
-     */
     private String email;
+
+    private Date createTime;
+
+    private Date updateTime;
 
 
 }

@@ -1,7 +1,8 @@
-package com.example.ssmp_demo.entity;
+package com.example.ssmp_demo.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -32,6 +33,7 @@ public class BaseEntity<T extends Model> extends Model {
      * 创建时间
      */
     @TableField(value = "create_time", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     protected Date createTime;
     /**
      * 创建人

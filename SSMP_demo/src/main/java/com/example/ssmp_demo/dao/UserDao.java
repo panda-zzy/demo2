@@ -1,7 +1,7 @@
 package com.example.ssmp_demo.dao;
 
 
-import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.pojo.entity.User;
 import org.springframework.stereotype.Repository;
 
 /**

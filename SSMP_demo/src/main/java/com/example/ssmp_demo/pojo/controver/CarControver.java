@@ -1,9 +1,8 @@
 package com.example.ssmp_demo.pojo.controver;
 
-import com.example.ssmp_demo.pojo.Car;
+import com.example.ssmp_demo.pojo.entity.Car;
 import com.example.ssmp_demo.pojo.CarDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 /**

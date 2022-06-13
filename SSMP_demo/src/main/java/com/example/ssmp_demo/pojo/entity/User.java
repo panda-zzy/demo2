@@ -1,4 +1,4 @@
-package com.example.ssmp_demo.entity;
+package com.example.ssmp_demo.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

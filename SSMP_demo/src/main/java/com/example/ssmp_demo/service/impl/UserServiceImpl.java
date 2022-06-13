@@ -3,7 +3,7 @@ package com.example.ssmp_demo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.ssmp_demo.dao.UserDao;
-import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.pojo.entity.User;
 import com.example.ssmp_demo.service.UserService;
 import org.springframework.stereotype.Service;
 

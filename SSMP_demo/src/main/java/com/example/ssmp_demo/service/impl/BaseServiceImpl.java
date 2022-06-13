@@ -1,7 +1,7 @@
 package com.example.ssmp_demo.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.ssmp_demo.dao.BaseDao;
-import com.example.ssmp_demo.entity.BaseEntity;
+import com.example.ssmp_demo.pojo.entity.BaseEntity;
 import com.example.ssmp_demo.service.BaseService;
 
 /**

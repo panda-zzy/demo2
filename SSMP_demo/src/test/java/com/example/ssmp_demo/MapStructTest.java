@@ -1,15 +1,13 @@
 package com.example.ssmp_demo;
 
-import com.example.ssmp_demo.pojo.Car;
+import com.example.ssmp_demo.pojo.entity.Car;
 import com.example.ssmp_demo.pojo.CarDto;
 import com.example.ssmp_demo.pojo.controver.CarControver;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 /**
  * @author Panda

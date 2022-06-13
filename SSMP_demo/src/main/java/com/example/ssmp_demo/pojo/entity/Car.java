@@ -1,4 +1,4 @@
-package com.example.ssmp_demo.pojo;
+package com.example.ssmp_demo.pojo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

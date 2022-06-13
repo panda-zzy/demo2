@@ -1,7 +1,7 @@
 package com.example.ssmp_demo.service;
 
 
-import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.pojo.entity.User;
 
 /**
  * <p>

@@ -1,14 +1,14 @@
 package com.example.ssmp_demo.pojo.controver;
 
-import com.example.ssmp_demo.pojo.Car;
 import com.example.ssmp_demo.pojo.CarDto;
+import com.example.ssmp_demo.pojo.entity.Car;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-13T23:37:56+0800",
+    date = "2022-06-13T23:44:58+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.2 (Oracle Corporation)"
 )
 public class CarControverImpl implements CarControver {

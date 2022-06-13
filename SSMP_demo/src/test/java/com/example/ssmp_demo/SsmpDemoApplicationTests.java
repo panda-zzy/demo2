@@ -2,13 +2,11 @@ package com.example.ssmp_demo;
 
 
 
-import com.alibaba.fastjson.JSON;
 import com.example.ssmp_demo.dao.UserDao;
-import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.pojo.entity.User;
 
 import com.example.ssmp_demo.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.mapstruct.ap.shaded.freemarker.template.SimpleDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

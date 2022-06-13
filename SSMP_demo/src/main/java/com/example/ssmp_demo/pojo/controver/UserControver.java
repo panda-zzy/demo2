@@ -1,6 +1,6 @@
 package com.example.ssmp_demo.pojo.controver;
 
-import com.example.ssmp_demo.entity.User;
+import com.example.ssmp_demo.pojo.entity.User;
 import com.example.ssmp_demo.pojo.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
